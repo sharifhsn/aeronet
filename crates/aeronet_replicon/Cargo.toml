@@ -2,7 +2,7 @@
 name = "aeronet_replicon"
 version = "0.22.0-rc.1"
 edition.workspace = true
-rust-version.workspace = true
+rust-version = "1.97.1"
 description = "`aeronet` backend implementation for `bevy_replicon`"
 repository.workspace = true
 license.workspace = true
@@ -27,7 +27,13 @@ log = { workspace = true }
 
 [dev-dependencies]
 aeronet_channel = { workspace = true }
-bevy = { workspace = true, features = ["debug"] }
+bevy_app = { workspace = true, features = ["std"] }
+bevy_time = { workspace = true, features = ["std"] }
+serde = { workspace = true }
+
+[[test]]
+name = "channel"
+required-features = ["client", "server"]
 
 [features]
 default = ["std"]
