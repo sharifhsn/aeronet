@@ -332,6 +332,8 @@ impl PacketLossHistory {
 
 #[cfg(test)]
 mod tests {
+    // Loss ratios 0, 0.5, and 1 are exactly representable, so exact comparisons
+    // are intentional.
     use super::SessionStatsSampling;
 
     #[test]

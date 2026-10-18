@@ -175,16 +175,15 @@ dependencies = [
  "aeronet_channel",
  "aeronet_io",
  "aeronet_transport",
+ "bevy",
  "bevy_app",
  "bevy_ecs",
  "bevy_platform",
  "bevy_reflect",
  "bevy_replicon",
  "bevy_state",
- "bevy_time",
  "document-features",
  "log",
- "serde",
 ]
 
 [[package]]
@@ -1199,6 +1198,7 @@ dependencies = [
  "indexmap",
  "log",
  "nonmax",
+ "rand",
  "serde",
  "slotmap",
  "smallvec",
