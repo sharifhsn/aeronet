@@ -332,11 +332,8 @@ impl PacketLossHistory {
 
 #[cfg(test)]
 mod tests {
-    #![expect(
-        clippy::float_cmp,
-        reason = "expected loss ratios are exactly representable: 0, 0.5, and 1"
-    )]
-
+    // Loss ratios 0, 0.5, and 1 are exactly representable, so exact comparisons
+    // are intentional.
     use super::SessionStatsSampling;
 
     #[test]

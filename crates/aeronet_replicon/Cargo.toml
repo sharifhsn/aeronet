@@ -2,7 +2,7 @@
 name = "aeronet_replicon"
 version = "0.22.0-rc.1"
 edition.workspace = true
-rust-version.workspace = true
+rust-version = "1.97.1"
 description = "`aeronet` backend implementation for `bevy_replicon`"
 repository.workspace = true
 license.workspace = true
@@ -12,6 +12,10 @@ categories.workspace = true
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg=docsrs_aeronet"]
+
+[[test]]
+name = "channel"
+required-features = ["client", "server"]
 
 [dependencies]
 aeronet_io = { workspace = true }
