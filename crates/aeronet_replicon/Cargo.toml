@@ -13,6 +13,10 @@ categories.workspace = true
 all-features = true
 rustdoc-args = ["--cfg=docsrs_aeronet"]
 
+[[test]]
+name = "channel"
+required-features = ["client", "server"]
+
 [dependencies]
 aeronet_io = { workspace = true }
 aeronet_transport = { workspace = true }
@@ -30,10 +34,6 @@ aeronet_channel = { workspace = true }
 bevy_app = { workspace = true, features = ["std"] }
 bevy_time = { workspace = true, features = ["std"] }
 serde = { workspace = true }
-
-[[test]]
-name = "channel"
-required-features = ["client", "server"]
 
 [features]
 default = ["std"]

@@ -11,7 +11,7 @@ use {
     bevy_app::{TaskPoolPlugin, prelude::*},
     bevy_ecs::prelude::*,
     bevy_platform::time::Instant,
-    bevy_replicon::prelude::*,
+    bevy_replicon::{prelude::*, shared::server_entity_map::ServerEntityMap},
     bevy_state::app::StatesPlugin,
     bevy_time::{TimePlugin, TimeUpdateStrategy},
     core::time::Duration,
@@ -30,7 +30,8 @@ fn channel_io_with_replicon() {
         RepliconPlugins,
         AeronetRepliconClientPlugin,
         AeronetRepliconServerPlugin,
-    ));
+    ))
+    .finish();
 
     let a = app.world_mut().spawn_empty().id();
     let b = app.world_mut().spawn_empty().id();
@@ -57,7 +58,8 @@ fn channel_io_replicates_components() {
         .insert_resource(TimeUpdateStrategy::ManualDuration(Duration::from_millis(
             50,
         )))
-        .replicate::<Counter>();
+        .replicate::<Counter>()
+        .finish();
 
     let mut client = App::new();
     client
@@ -72,7 +74,8 @@ fn channel_io_replicates_components() {
         .insert_resource(TimeUpdateStrategy::ManualDuration(Duration::from_millis(
             50,
         )))
-        .replicate::<Counter>();
+        .replicate::<Counter>()
+        .finish();
 
     let endpoint = server
         .world_mut()
